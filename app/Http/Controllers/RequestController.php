@@ -11,6 +11,7 @@ use illuminate\Support\Str;
 use App\Models\Map;
 use Carbon\Carbon;
 use PDF;
+use app\Models\User;
 
 use Illuminate\Support\Facades\Mail;
 
@@ -48,6 +49,14 @@ class RequestController extends Controller
     public function store(Request $request)
     {
         // Mail::send(new \App\Mail\SendEmailAfterTransactions());
+
+        // Mail::to($recipient)->send(new \App\Mail\SendEmailAfterTransactions());
+        $admins = User::where('roles', 'ADMIN')->get();
+
+        foreach ($admins as $admin) {
+            Mail::to($admin)->send(new \App\Mail\SendEmailAfterTransactions());
+        }
+
 
         $dt = Carbon::now();
         $now = $dt->toDateString();

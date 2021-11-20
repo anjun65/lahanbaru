@@ -460,13 +460,19 @@
 
                                     
 
-                                    <div class="col-md-12">
+				    <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Catatan</label>
+                                            <label>Catatan Staff Muda</label>
                                             <textarea name="description" disabled class="form-control">{{ $item->catatan_staf_muda }}</textarea>
                                         </div>
                                     </div>
 
+                                      <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Catatan VP</label>
+                                            <textarea name="catatan_vp" disabled class="form-control">{{ $item->catatan_vp }}</textarea>
+                                        </div>
+                                    </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Status</label>

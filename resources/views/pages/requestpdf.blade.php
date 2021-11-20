@@ -213,7 +213,7 @@
                         <td height="80px" colspan="5">
                             <p class="m-1" style="padding-left:5px;">C. Benih & Pupuk</p>
                             
-                            @if ($item->pupuk == "Benih")
+                            @if (isset($item->jumlah_benih))
                                 <p class="m-2" style="padding-left:20px;">
                                     <input type="checkbox" checked="true" aria-label="Checkbox for following text input"> Benih, (Disediakan peneliti)
                                 </p>
@@ -223,9 +223,9 @@
                                 </p>
                             @endif
 
-                            @if ($item->pupuk == "Petroganik")
+                            @if (isset($item->jumlah_petroganik))
                                 <p class="m-2" style="padding-left:20px;">
-                                    <input checked="true" type="checkbox" aria-label="Checkbox for following text input"> Petroganik
+                                    <input checked="true" type="checkbox" aria-label="Checkbox for following text input"> Petroganik, {{ $item->jumlah_phonska }} Kg
                                 </p>
                             @else
                                 <p class="m-2" style="padding-left:20px;">
@@ -233,23 +233,23 @@
                                 </p>
                             @endif
 
-                            @if ($item->pupuk == "Phonska")
+                            @if (isset($item->jumlah_phonska))
                                 <p class="m-2" style="padding-left:20px;">
-                                    <input checked="true" type="checkbox" aria-label="Checkbox for following text input"> Phonska
+                                    <input checked="true" type="checkbox" aria-label="Checkbox for following text input"> Phonska, {{ $item->jumlah_phonska }} Kg
                                 </p>
                             @else
                                 <p class="m-2" style="padding-left:20px;">
-                                    <input type="checkbox" aria-label="Checkbox for following text input"> Phonska
+                                    <input type="checkbox" aria-label="Checkbox for following text input"> Phonska, ........ Kg
                                 </p>
                             @endif
 
-                            @if ($item->pupuk == "Urea")
+                            @if (isset($item->jumlah_urea))
                                 <p class="m-2" style="padding-left:20px;">
-                                    <input checked="true" type="checkbox" aria-label="Checkbox for following text input"> Urea
+                                    <input checked="true" type="checkbox" aria-label="Checkbox for following text input"> Urea, {{ $item->jumlah_urea }} Kg
                                 </p>
                             @else
                                 <p class="m-2" style="padding-left:20px;">
-                                    <input type="checkbox" aria-label="Checkbox for following text input"> Urea
+                                    <input type="checkbox" aria-label="Checkbox for following text input"> Urea, ........ Kg
                                 </p>
                             @endif
                             
@@ -257,9 +257,9 @@
                             
                         </td>
                         <td colspan="5">
-                             @if ($item->pupuk == "ZA")
+                             @if (isset($item->jumlah_za))
                                 <p style="padding-left:20px;margin-top:40px;margin-left:8px;margin-bottom:8px">
-                                    <input checked="true" type="checkbox" aria-label="Checkbox for following text input"> ZA , {{ $item->jumlah_pupuk }} Kg
+                                    <input checked="true" type="checkbox" aria-label="Checkbox for following text input"> ZA , {{ $item->jumlah_za }} Kg
                                 </p>
                             @else
                                 <p style="padding-left:20px;margin-top:40px;margin-left:8px;margin-bottom:8px">
@@ -267,9 +267,9 @@
                                 </p>
                             @endif
 
-                             @if ($item->pupuk == "ZK")
+                             @if (isset($item->jumlah_zk))
                                 <p class="m-2" style="padding-left:20px;">
-                                    <input checked="true" type="checkbox" aria-label="Checkbox for following text input"> ZK , {{ $item->jumlah_pupuk }} Kg
+                                    <input checked="true" type="checkbox" aria-label="Checkbox for following text input"> ZK , {{ $item->jumlah_zk }} Kg
                                 </p>
                             @else
                                 <p class="m-2" style="padding-left:20px;">
@@ -277,9 +277,9 @@
                                 </p>
                             @endif
 
-                            @if ($item->pupuk == "KCI")
+                            @if (isset($item->jumlah_kci))
                                 <p class="m-2" style="padding-left:20px;">
-                                    <input checked="true" type="checkbox" aria-label="Checkbox for following text input"> KCI , {{ $item->jumlah_pupuk }} Kg
+                                    <input checked="true" type="checkbox" aria-label="Checkbox for following text input"> KCI , {{ $item->jumlah_kci }} Kg
                                 </p>
                             @else
                                 <p class="m-2" style="padding-left:20px;">
@@ -287,9 +287,9 @@
                                 </p>
                             @endif
 
-                            @if ($item->pupuk == "Lain-lain")
+                            @if (isset($item->benih_lain))
                                 <p class="m-2" style="padding-left:20px;">
-                                    <input checked="true" type="checkbox" aria-label="Checkbox for following text input"> Lain-lain , {{ $item->jumlah_pupuk }} Kg
+                                    <input checked="true" type="checkbox" aria-label="Checkbox for following text input"> Lain-lain , {{ $item->benih_lain }}  {{ $item->benih_lain }} Kg
                                 </p>
                             @else
                                 <p class="m-2" style="padding-left:20px;">
@@ -303,7 +303,7 @@
                         <td colspan="5">
                             <p class="m-1" style="padding-left:5px;">D. Sarana lain</p>
 
-                            @if ($item->sarana_lain == "Pestisida sesuai kebutuhan")
+                            @if (isset($item->pestisida))
                                 <p class="m-2" style="padding-left:20px;">
                                     <input checked="true" type="checkbox" checked="true" aria-label="Checkbox for following text input"> Pestisida sesuai kebutuhan
                                 </p>
@@ -313,7 +313,7 @@
                                 </p>
                             @endif
 
-                            @if ($item->sarana_lain == "Herbisida sesuai kebutuhan")
+                            @if (isset($item->herbisida))
                                 <p class="m-2" style="padding-left:20px;">
                                     <input checked="true" type="checkbox" checked="true" aria-label="Checkbox for following text input"> Herbisida sesuai kebutuhan
                                 </p>
@@ -323,7 +323,7 @@
                                 </p>
                             @endif
 
-                            @if ($item->sarana_lain == "Fungisida sesuai kebutuhan")
+                            @if (isset($item->fungisida))
                                 <p class="m-2" style="padding-left:20px;">
                                     <input checked="true" type="checkbox" aria-label="Checkbox for following text input"> Fungisida sesuai kebutuhan
                                 </p>
@@ -335,7 +335,7 @@
                             
                         </td>
                         <td colspan="5">
-                            @if ($item->sarana_lain == "Plastik Barier")
+                            @if (isset($item->plastik_barrier))
                                 <p style="padding-left:20px;margin-top:40px;margin-left:8px;margin-bottom:8px">
                                     <input checked="true" type="checkbox" aria-label="Checkbox for following text input"> Plastik Barier
                                 </p>
@@ -345,7 +345,7 @@
                                 </p>
                             @endif
 
-                            @if ($item->sarana_lain == "Jaring Burung")
+                            @if (isset($item->jaring_burung))
                                 <p class="m-2" style="padding-left:20px;">
                                     <input checked="true" type="checkbox" aria-label="Checkbox for following text input"> Jaring Burung
                                 </p>
@@ -356,13 +356,13 @@
                             @endif
 
 
-                            @if ($item->sarana_lain == "Lain-lain")
+                            @if (isset($item->sarana_lain))
                                 <p class="m-2" style="padding-left:20px;">
-                                    <input checked="true" type="checkbox" aria-label="Checkbox for following text input"> Lain-lain , ...... Kg
+                                    <input checked="true" type="checkbox" aria-label="Checkbox for following text input"> Lain-lain , {{ $item->sarana_lain }}
                                 </p>
                             @else
                                 <p class="m-2" style="padding-left:20px;">
-                                    <input type="checkbox" aria-label="Checkbox for following text input"> Lain-lain , ...... Kg
+                                    <input type="checkbox" aria-label="Checkbox for following text input"> Lain-lain , ......
                                 </p>
                             @endif
                             

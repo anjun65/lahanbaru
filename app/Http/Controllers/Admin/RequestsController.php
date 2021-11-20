@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 use App\Models\Request;
+use App\Models\User;
+
+use Illuminate\Support\Facades\Mail;
+use illuminate\Support\Facades\Auth;
+
 use App\Http\Requests\Admin\RequestRequest;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -124,6 +129,27 @@ class RequestsController extends Controller
         $catatan = $request->description;
         $status = $request->status;
         
+        $vps = User::where('roles', 'VP')->get();
+        
+        if ($status = "Disetujui"){
+            Mail::to(Auth::user()->email)->send(new \App\Mail\SendEmailAfterAccepted());
+
+            foreach ($vps as $vp) {
+                Mail::to($vp)->send(new \App\Mail\SendEmailAfterAccepted());
+            }
+        }
+
+        if ($status = "Revisi"){
+            Mail::to(Auth::user()->email)->send(new \App\Mail\SendEmailNeedRevision());
+
+            foreach ($vps as $vp) {
+               Mail::to($vp)->send(new \App\Mail\SendEmailNeedRevision());
+            }
+        }
+        
+
+
+
         $item = Request::findOrFail($id);
 
         $item->update([

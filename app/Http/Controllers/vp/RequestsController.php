@@ -4,9 +4,11 @@ namespace App\Http\Controllers\vp;
 
 use App\Http\Controllers\Controller;
 
-use App\Models\Request;
+use App\Models\Request as RequestModel;
 use App\Http\Requests\Admin\RequestRequest;
+use App\Http\Requests\VP\VPRequest;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Http\Request;
 
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
@@ -22,7 +24,7 @@ class RequestsController extends Controller
     {
         if(request()->ajax())
         {
-            $query = Request::query();
+            $query = RequestModel::query();
             return Datatables::of($query)
                 ->addcolumn('action', function($item) {
                     return '
@@ -103,7 +105,7 @@ class RequestsController extends Controller
     public function edit($id)
     {
         
-        $item = Request::findOrFail($id);
+        $item = RequestModel::findOrFail($id);
 
         $qrcode = QrCode::generate(route('barcode-show', $id));
 
@@ -120,16 +122,15 @@ class RequestsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(VPRequest $request, $id)
     {
         
-        $item = Request::findOrFail($id);
-
+        $item = RequestModel::findOrFail($id);
         $item->update([
-            'catatan_staf_vp' => $request->catatan_staf_vp,
+            'catatan_vp' => $request->catatan_vp,
         ]);
 
-        return redirect()->route('request.index');
+        return redirect()->route('request-vp.index');
     }
 
     /**
@@ -140,9 +141,9 @@ class RequestsController extends Controller
      */
     public function destroy($id)
     {
-        $item = Request::findOrFail($id);
+        $item = RequestModel::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('request.index');
+        return redirect()->route('request-vp.index');
     }
 }

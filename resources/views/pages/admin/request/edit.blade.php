@@ -1,4 +1,4 @@
-@extends('layouts.vp')
+@extends('layouts.admin')
 
 
 @section('title')
@@ -38,7 +38,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Judul Kegiatan</label>
-                                            <input type="text" name="judul" class="form-control" required value="{{ $item->judul }}">
+                                            <input type="text" name="judul" class="form-control" value="{{ $item->judul }}">
                                         </div>
                                     </div>
 
@@ -64,48 +64,48 @@
                                      <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Tanggal Tanam</label>
-                                            <input type="text" name="akhir_pelaksanaan" class="form-control" required value="{{ $item->tanggal_tanam }}">
+                                            <input type="text" name="akhir_pelaksanaan" class="form-control" value="{{ $item->tanggal_tanam }}">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Awal Pelaksanaan</label>
-                                            <input type="text" name="awal_pelaksanaan" class="form-control" required value="{{ $item->awal_pelaksanaan }}">
+                                            <input type="text" name="awal_pelaksanaan" class="form-control" value="{{ $item->awal_pelaksanaan }}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Akhir Pelaksanaan</label>
-                                            <input type="text" name="tanam_date" class="form-control" required value="{{ $item->akhir_pelaksanaan }}">
+                                            <input type="text" name="tanam_date" class="form-control" value="{{ $item->akhir_pelaksanaan }}">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Blok</label>
-                                            <input type="text" name="blok" class="form-control" required value="{{ $item->blok }}">
+                                            <input type="text" name="blok" class="form-control" value="{{ $item->blok }}">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Peneliti</label>
-                                            <input disabled type="text" name="peneliti" class="form-control" required value="{{ $item->user->name }}">
+                                            <input disabled type="text" name="peneliti" class="form-control" value="{{ $item->user->name }}">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Areal</label>
-                                            <input type="text" name="areal" class="form-control" required value="{{ $item->areal }}">
+                                            <input type="text" name="areal" class="form-control" value="{{ $item->areal }}">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Keterangan Areal</label>
-                                            <input type="text" name="keterangan_areal" class="form-control" required value="{{ $item->keterangan_areal }}">
+                                            <input type="text" name="keterangan_areal" class="form-control" value="{{ $item->keterangan_areal }}">
                                         </div>
                                     </div>
 
@@ -132,7 +132,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Varietas</label>
-                                            <input type="text" name="varietas" class="form-control" required value="{{ $item->varietas }}">
+                                            <input type="text" name="varietas" class="form-control" value="{{ $item->varietas }}">
                                         </div>
                                     </div>
 
@@ -152,7 +152,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Jumlah Peralatan</label>
-                                            <input type="text" name="jumlah_peralatan" class="form-control" required value="{{ $item->jumlah_peralatan }}">
+                                            <input type="text" name="jumlah_peralatan" class="form-control" value="{{ $item->jumlah_peralatan }}">
                                         </div>
                                     </div>
 

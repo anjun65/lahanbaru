@@ -524,6 +524,8 @@
                                     $new_K404 = implode("<br/><br/>",$K404);
                                     $new_K405 = implode("<br/><br/>",$K405);
                                     $new_K406 = implode("<br/><br/>",$K406);
+				    $new_K501 = implode("<br/><br/>",$K501);
+                                    $new_K502 = implode("<br/><br/>",$K502);
 
                                     $new_K601 = implode("<br/><br/>",$K601);
                                     $new_K701 = implode("<br/><br/>",$K701 );
@@ -1456,7 +1458,7 @@
 
                         <div class="form-group form-2">
                             <label>Tujuan Kegiatan:</label>
-                            <textarea row="5" required type="text" name="tujuan" class="form-control"></textarea>
+                            <textarea row="5" required type="text" name="tujuan" class="form-control" id="editor"></textarea>
                         </div>
 
                         {{-- <div class="form-group">
@@ -1909,6 +1911,11 @@
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     
+    <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+    <script>
+            CKEDITOR.replace('editor');
+    </script>
+    
     <script>
         var tId;
         $('.alert').hide();
@@ -1978,18 +1985,7 @@
             var akhir;
             // $('.lahanrect').each(console.log('test'));
 
-            $(".lahanrect").each(function(){
-                if(typeof $(this).attr("data-content") !== 'undefined'){
-                    awal = $(this).attr("data-content").split(/\s+/).slice()[9].split('-')[1];;
-                    akhir = $(this).attr("data-content").split(/\s+/).slice()[13].split('-')[1];;
-
-
-                    if (awal == n || akhir == n){
-                        $(this).css("fill", "red");
-                        $(this).attr('thisMonth','true');
-                    }
-                }
-            });
+            
 
             $('.form-2').hide();
             $('#komoditas_lainnya').hide();
